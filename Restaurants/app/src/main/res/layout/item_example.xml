@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
-        android:layout_height="318dp">
+        android:layout_height="415dp">
 
 
         <TextView
@@ -21,9 +21,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="Romantik"
             android:textColor="@color/white"
-            android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/image_restaurant"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -35,7 +33,7 @@
             android:id="@+id/image_restaurant"
             android:layout_width="300dp"
             android:layout_height="130dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toTopOf="@+id/Adress_restaurant"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -46,13 +44,37 @@
             android:id="@+id/Adress_restaurant"
             android:layout_width="281dp"
             android:layout_height="40dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginEnd="64dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/phone_restaurant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.033"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/phone_restaurant"
+            android:layout_width="281dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+
+            android:layout_marginEnd="44dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/favorit_restaurant"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/favorit_restaurant"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/phone_restaurant"
+            android:src="@drawable/ic_baseline_favorite_24"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

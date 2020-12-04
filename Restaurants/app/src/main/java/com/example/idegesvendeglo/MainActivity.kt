@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val profileFragment = ProfileFragment()
-        val mainFragment = MainFragment()
+        val mainFragment =ListFragment()
       makeCurrentFragment(profileFragment)
 
         val button = this.findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
             true
 
         }
+
+
+
 
     }
 
