@@ -1,4 +1,4 @@
-package com.example.idegesvendeglo
+package com.example.restaurants
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.idegesvendeglo
+package com.example.restaurants
 
 import android.app.Activity
 import android.content.Intent
@@ -17,8 +17,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.idegesvendeglo.data.user.User
-import com.example.idegesvendeglo.data.user.UserViewModel
+import com.example.restaurants.data.user.User
+import com.example.restaurants.data.user.UserViewModel
 
 class AddFragment : Fragment() {
 

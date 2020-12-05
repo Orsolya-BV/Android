@@ -1,15 +1,5 @@
-package com.example.idegesvendeglo.data.restaurants
+package com.example.restaurants.data.restaurants
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.example.idegesvendeglo.ListFragment
-import com.example.idegesvendeglo.R
-import org.w3c.dom.Text
 /*
 class RestaurantListAdapter(private var restaurant: ListFragment,private val listener:AdapterView.OnItemClickListener):
 RecyclerView.Adapter<RestaurantListAdapter.RestaurantListHolder>() {

@@ -1,8 +1,7 @@
-package com.example.idegesvendeglo.data.restaurants
+package com.example.restaurants.data.restaurants
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.idegesvendeglo.data.user.User
 
 @Dao
 interface RestaurantDao {

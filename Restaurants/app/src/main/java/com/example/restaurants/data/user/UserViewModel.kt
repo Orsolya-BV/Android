@@ -1,12 +1,9 @@
-package com.example.idegesvendeglo.data.user
+package com.example.restaurants.data.user
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.idegesvendeglo.data.user.User
-import com.example.idegesvendeglo.data.user.UserDatabase
-import com.example.idegesvendeglo.data.user.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

@@ -1,21 +1,24 @@
-package com.example.idegesvendeglo.data.user
+package com.example.restaurants.data.restaurants
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.restaurants.data.user.User
+import com.example.restaurants.data.user.UserDao
+
 
 @Database(entities = [User::class],version = 1,exportSchema = false)
-abstract class UserDatabase:RoomDatabase() {
+abstract class RestaurantDatabase: RoomDatabase() {
 
     abstract fun userDao(): UserDao
 
     companion object
     {
         @Volatile
-        private var INSTANCE: UserDatabase? = null
+        private var INSTANCE: RestaurantDatabase? = null
 
-        fun getDatabase(context: Context): UserDatabase
+        fun getDatabase(context: Context): RestaurantDatabase
         {
             val tempInstance = INSTANCE
             if(tempInstance != null)
@@ -25,8 +28,8 @@ abstract class UserDatabase:RoomDatabase() {
             synchronized(this)
             {
                 val instance = Room.databaseBuilder(
-                    context.applicationContext, UserDatabase::class.java,
-                    "user_database"
+                        context.applicationContext,RestaurantDatabase::class.java,
+                        "restaurant_database"
                 ).build()
                 INSTANCE = instance
                 return instance

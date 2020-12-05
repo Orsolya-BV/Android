@@ -1,8 +1,6 @@
-package com.example.idegesvendeglo.data.user
+package com.example.restaurants.data.user
 
 import androidx.lifecycle.LiveData
-import com.example.idegesvendeglo.data.user.User
-import com.example.idegesvendeglo.data.user.UserDao
 
 class UserRepository(private val userDao: UserDao) {
 

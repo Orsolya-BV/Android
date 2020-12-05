@@ -1,4 +1,4 @@
-package com.example.idegesvendeglo.data.restaurants
+package com.example.restaurants.data.restaurants
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

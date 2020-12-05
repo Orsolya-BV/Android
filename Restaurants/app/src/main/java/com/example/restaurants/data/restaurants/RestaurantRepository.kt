@@ -1,7 +1,6 @@
-package com.example.idegesvendeglo.data.restaurants
+package com.example.restaurants.data.restaurants
 
 import androidx.lifecycle.LiveData
-import com.example.idegesvendeglo.data.user.User
 
 class RestaurantRepository(private val restaurantDao: RestaurantDao) {
     suspend fun addRestaurant(restaurant: Restaurant)

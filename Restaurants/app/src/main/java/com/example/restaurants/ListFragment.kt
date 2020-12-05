@@ -1,4 +1,4 @@
-package com.example.idegesvendeglo
+package com.example.restaurants
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
