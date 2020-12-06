@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.restaurants.data.user.User
 import com.example.restaurants.data.user.UserViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ProfileFragment : Fragment() {
 
@@ -22,15 +23,8 @@ class ProfileFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        //val go = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
-        //go.setOnClickListener {
 
 
-               // findNavController().navigate(R.id.action_profileFragment_to_addFragment)
-
-         //   Toast.makeText(context,"sikerult",Toast.LENGTH_LONG).show()
-
-       // }
         return view
     }
 

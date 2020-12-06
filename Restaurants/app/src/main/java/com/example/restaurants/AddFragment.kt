@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.restaurants.data.user.User
@@ -23,12 +24,8 @@ import com.example.restaurants.data.user.UserViewModel
 class AddFragment : Fragment() {
 
 
-    private lateinit var ProfileImage:ImageView
+    private lateinit var profileImage:ImageView
     private lateinit var mUserViewModel: UserViewModel
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,20 +35,58 @@ class AddFragment : Fragment() {
         val view= inflater.inflate(R.layout.fragment_add, container, false)
 
 
-    ProfileImage = view.findViewById<ImageView>(R.id.imageView)
+   // mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        //mUserViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
-    mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+      //  mUserViewModel.readAllData().observe(viewLifecycleOwner, Observer
+       //     {
+        //        user ->
+        //    })
 
-    ProfileImage.setOnClickListener {
+
+    return view
+}
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        requireActivity().run {
+            //viewmodel
+            ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+
+            //sav button
+            val save = view.findViewById<Button>(R.id.button_save)
+            save.setOnClickListener {
+                insertDataToDatabase()
+                findNavController().navigate(R.id.action_addFragment_to_profileFragment)
+            }
+        }
+
+    }
+
+
+companion object
+{
+    //imagePick code
+    private val IMAGE_PICK_CODE = 1000;
+
+    //permission code
+    private val PERMISSION_CODE =1001;
+}
+
+private fun insertDataToDatabase() {
+    profileImage = requireActivity().findViewById<ImageView>(R.id.imageView)
+
+    profileImage.setOnClickListener {
 
 
         //check runtime permission
+        //what the heck is this??
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
-                ) == PackageManager.PERMISSION_DENIED
+                            requireContext(),
+                            android.Manifest.permission.READ_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_DENIED
             ) {
 
                 val permission = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -68,27 +103,6 @@ class AddFragment : Fragment() {
             pickImageFromGalery();
         }
     }
-
-    val save = view.findViewById<Button>(R.id.button_save)
-
-   save.setOnClickListener {
-       insertDataToDatabase()
-   }
-
-        findNavController().navigate(R.id.action_addFragment_to_profileFragment)
-    return view
-}
-
-companion object
-{
-    //imagePick code
-    private val IMAGE_PICK_CODE = 1000;
-
-    //permission code
-    private val PERMISSION_CODE =1001;
-}
-
-private fun insertDataToDatabase() {
     val un = view?.findViewById<TextView>(R.id.editName);
     val ua = view?.findViewById<TextView>(R.id.editAdress)
     val up = view?.findViewById<TextView>(R.id.editPhone)
@@ -102,14 +116,14 @@ private fun insertDataToDatabase() {
     if(inputCheck(UserName,UserAdress,UserPhone,UserEmail))
     {
         //Creat user object
-        val user = User(0,UserName,Integer.parseInt(ProfileImage.toString()),UserAdress,UserPhone,UserEmail)
+        val user = User(0,UserName,Integer.parseInt(profileImage.toString()),UserAdress,UserPhone,UserEmail)
         //Add data to database
 
         mUserViewModel.addUser(user)
 
         Toast.makeText(requireContext(),"Succesfully added!",Toast.LENGTH_LONG).show()
         //navigate back to profile fragment
-        findNavController().navigate(R.id.action_addFragment_to_profileFragment)
+
 
     }else
     {

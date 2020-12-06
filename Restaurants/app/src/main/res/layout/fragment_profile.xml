@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/profile"
     android:orientation="vertical"
     android:layout_height="match_parent"
-
     tools:context=".ProfileFragment"
     >
 
@@ -41,20 +41,28 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="39dp"
         android:layout_marginTop="307dp"
+        android:textColor="@color/black"
+        android:background="@color/green"
+        android:gravity="center"
+        android:textStyle="bold"
         android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/adress"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@color/green"
+        android:gravity="center"
         android:text="Adress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -72,10 +80,14 @@
 
     <TextView
         android:id="@+id/phone"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@color/green"
         android:text="Phone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adress" />
@@ -93,10 +105,14 @@
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@color/green"
+        android:gravity="center"
         android:text="Email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
@@ -112,18 +128,6 @@
         app:layout_constraintStart_toEndOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/editedPhone" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-           android:id="@+id/floatingActionBar"
-            android:layout_width="75dp"
-            android:layout_height="81dp"
-            android:layout_marginStart="314dp"
-            android:layout_marginEnd="55dp"
-            android:layout_marginBottom="51dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
