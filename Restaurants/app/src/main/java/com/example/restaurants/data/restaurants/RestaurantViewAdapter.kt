@@ -8,8 +8,8 @@ import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.restaurants.DetailsFragment
-import com.example.restaurants.ListFragment
+import com.example.restaurants.fragments.DetailsFragment
+import com.example.restaurants.fragments.ListFragment
 import com.example.restaurants.R
 
 

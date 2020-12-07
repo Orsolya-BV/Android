@@ -4,19 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toolbar
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.restaurants.fragments.AddFragment
+import com.example.restaurants.fragments.ListFragment
+import com.example.restaurants.fragments.ProfileFragment
 import com.google.android.material.navigation.NavigationView
-import java.util.*
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var  mDrawer: DrawerLayout
-    lateinit var profileFragment:ProfileFragment
+    lateinit var profileFragment: ProfileFragment
     lateinit var addFragment: AddFragment
     lateinit var listFragment: ListFragment
    lateinit var toolbar:Toolbar

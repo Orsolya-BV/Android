@@ -14,6 +14,8 @@ class RestaurantViewModel(application: Application): AndroidViewModel(applicatio
     init {
         val restaurantDao = RestaurantDatabase.getDatabase(application).restaurantDao()
         repository = RestaurantRepository(restaurantDao)
+
+
     }
 
     fun addRestaurant(restaurant: Restaurant) {
@@ -43,6 +45,7 @@ class RestaurantViewModel(application: Application): AndroidViewModel(applicatio
     }
 }
 
-private fun RestaurantDatabase.restaurantDao(): RestaurantDao {
-return restaurantDao()
-}
+    private fun RestaurantDatabase.restaurantDao(): RestaurantDao {
+            return restaurantDao()
+        }
+

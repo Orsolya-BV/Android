@@ -1,4 +1,4 @@
-package com.example.restaurants
+package com.example.restaurants.fragments
 
 import android.app.Activity
 import android.content.Intent
@@ -15,15 +15,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.restaurants.Communicator
+import com.example.restaurants.R
 import com.example.restaurants.data.user.User
 import com.example.restaurants.data.user.UserViewModel
 
 class AddFragment : Fragment() {
 
-
+    lateinit var comm:Communicator
     private lateinit var profileImage:ImageView
     private lateinit var mUserViewModel: UserViewModel
 
@@ -58,6 +59,7 @@ class AddFragment : Fragment() {
             save.setOnClickListener {
                 insertDataToDatabase()
                 findNavController().navigate(R.id.action_addFragment_to_profileFragment)
+
             }
         }
 
@@ -124,11 +126,17 @@ private fun insertDataToDatabase() {
         Toast.makeText(requireContext(),"Succesfully added!",Toast.LENGTH_LONG).show()
         //navigate back to profile fragment
 
-
+        // comm.passDataCom(UserName)
+       // comm.passDataCom(UserAdress)
+        //comm.passDataCom(profileImage.toString())
+        //comm.passDataCom(UserPhone)
+       // comm.passDataCom(UserEmail)
     }else
     {
         Toast.makeText(requireContext(),"BAD!",Toast.LENGTH_LONG).show()
     }
+
+
 }
 
 private fun inputCheck(UserName:String,UserAdress:String,UserPhone:String,UserEmail:String):Boolean
@@ -140,7 +148,7 @@ private fun pickImageFromGalery()
 {
     val intent = Intent(Intent.ACTION_PICK)
     intent.type = "image/*"
-    startActivityForResult(intent,IMAGE_PICK_CODE)
+    startActivityForResult(intent, IMAGE_PICK_CODE)
 
 }
 
@@ -157,7 +165,7 @@ override fun onRequestPermissionsResult(
 ) {
     when(requestCode)
     {
-        PERMISSION_CODE->
+        PERMISSION_CODE ->
         {
             if(grantResults.size >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             {

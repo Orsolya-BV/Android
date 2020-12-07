@@ -8,12 +8,12 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.restaurants.ProfileFragment"
+        android:name="com.example.restaurants.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.restaurants.AddFragment"
+        android:name="com.example.restaurants.fragments.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action
