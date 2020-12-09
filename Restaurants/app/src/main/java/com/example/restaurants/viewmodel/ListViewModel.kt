@@ -21,7 +21,7 @@ class ListViewModel(private val repository: Repository) :ViewModel(){
     }
 */
 
-    val myResponse:MutableLiveData<Response<List<Restaurant>>> = MutableLiveData()
+
 /*
     fun getRestaurant()
     {
@@ -33,10 +33,29 @@ class ListViewModel(private val repository: Repository) :ViewModel(){
 
 */
 
+    /*
     fun getRestaurant(options:Map<String,String>)
     {
         viewModelScope.launch {
             val response:Response<List<Restaurant>> = repository.getRestaurant(options)
+            myResponse.value = response
+        }
+    }
+    */
+
+    val myResponse = MutableLiveData<Response<List<Restaurant>>>()
+     fun getLondonRestaurants(city:String)
+    {
+        viewModelScope.launch {
+            val response:Response<List<Restaurant>> = repository.getLondonRestaurants(city)
+            myResponse.value = response
+        }
+    }
+
+    suspend fun getLondonRestaurantsWithPrice2(city:String,price:Int)
+    {
+        viewModelScope.launch { 
+            val response: Response<List<Restaurant>> = repository.getLondonRestaurantsWithPrice2(city,price)
             myResponse.value = response
         }
     }

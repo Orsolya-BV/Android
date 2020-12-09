@@ -14,4 +14,9 @@ class UserRepository(private val userDao: UserDao) {
     {
         return userDao.readAllData()
     }
+
+    fun activeUser(): LiveData<User>
+    {
+        return userDao.activeUser()
+    }
 }

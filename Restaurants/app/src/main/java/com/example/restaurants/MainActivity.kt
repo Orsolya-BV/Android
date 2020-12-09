@@ -3,6 +3,8 @@ package com.example.restaurants
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -34,11 +36,13 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
 
         navigationView =findViewById<NavigationView>(R.id.navigation)
-        //val toggle = ActionBarDrawerToggle(this,mDrawer,toolbar,0,0)
-        //mDrawer.addDrawerListener(toggle)
         navigationView.setNavigationItemSelectedListener(this)
 
-
+      /*
+        val headerView = navigationView.getHeaderView(0)
+        val textView = headerView.findViewById<TextView>(R.id.headerText)
+        textView.setText("alma")
+*/
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

@@ -28,4 +28,9 @@ class UserViewModel(application: Application):AndroidViewModel(application) {
     {
         return repository.readAllData()
     }
+
+    fun activeUser(): LiveData<User>
+    {
+        return repository.activeUser()
+    }
 }

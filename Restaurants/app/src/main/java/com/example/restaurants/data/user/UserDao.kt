@@ -17,4 +17,7 @@ interface UserDao {
 
     fun readAllData():LiveData<User>
 
+
+    @Query("SELECT * FROM user_table WHERE user_id = 0")
+    fun activeUser(): LiveData<User>
 }
