@@ -27,8 +27,8 @@ import java.util.regex.Pattern
 
 class AddFragment : Fragment() {
 
-    lateinit var comm:Communicator
-    private lateinit var profileImage:ImageView
+    //lateinit var comm:Communicator
+  //  private lateinit var profileImage:ImageView
     private lateinit var mUserViewModel: UserViewModel
 
     override fun onCreateView(
@@ -55,13 +55,13 @@ class AddFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().run {
             //viewmodel
-            ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+           mUserViewModel= ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
             //sav button
             val save = view.findViewById<Button>(R.id.button_save)
             save.setOnClickListener {
                 insertDataToDatabase()
-                findNavController().navigate(R.id.action_addFragment_to_profileFragment)
+               // findNavController().navigate(R.id.action_addFragment_to_profileFragment)
 
             }
         }
@@ -79,7 +79,8 @@ companion object
 }
 
 private fun insertDataToDatabase() {
-    profileImage = requireActivity().findViewById<ImageView>(R.id.imageView)
+
+  /*  profileImage = requireActivity().findViewById<ImageView>(R.id.imageView)
 
     profileImage.setOnClickListener {
 
@@ -108,6 +109,10 @@ private fun insertDataToDatabase() {
             pickImageFromGalery();
         }
     }
+
+
+    */
+
     val userName = requireView().findViewById<TextView>(R.id.editName);
     val userAdress = requireView().findViewById<TextView>(R.id.editAdress)
     val userPhone = requireView().findViewById<TextView>(R.id.editPhone)
@@ -118,7 +123,9 @@ private fun insertDataToDatabase() {
     if(inputCheck(userName,userEmail,userPhone,userAdress))
     {
         //Creat user object
-        val user = User(0, userName?.text.toString(),Integer.parseInt(profileImage.toString()),userAdress?.text.toString(),userPhone?.text.toString(),userEmail?.text.toString())
+     //  val user = User(0, userName?.text.toString(),Integer.parseInt(profileImage.toString()),userAdress?.text.toString(),userPhone?.text.toString(),userEmail?.text.toString())
+
+         val user = User(0,userName?.text.toString(),userAdress?.text.toString(),userPhone?.text.toString(),userEmail.text.toString())
         //Add data to database
 
         mUserViewModel.addUser(user)
@@ -151,14 +158,32 @@ private fun insertDataToDatabase() {
     //    Toast.makeText(requireContext(),"BAD!",Toast.LENGTH_LONG).show()
     }
 
+        mUserViewModel.activeUser().observe(requireActivity(), Observer
+                {
+                    if(it != null)
+                    {
+                        val intent = Intent(requireActivity(),MainActivity::class.java)
+
+                        intent.putExtra("id",it.user_id.toString())
+                        intent.putExtra("name",it.user_name)
+                        intent.putExtra("email",it.user_email)
+                        intent.putExtra("adress",it.user_adress)
+                        intent.putExtra("phone",it.user_phone_number)
+
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                    else
+                    {
+                        Toast.makeText(requireContext(),"Nem jo na ",Toast.LENGTH_LONG).show()
+                    }
+                })
 
 }
 
-
-
     private fun inputCheck(name: TextView, email: TextView, phone: TextView,adress:TextView): Boolean {
 
-        return (validateUserName(name) && validateEmail(email) && validatePhone(phone) && validateAdress(adress))
+        return (validateUserName(name) && validateEmail(email) && validateAdress(adress))
 
     }
     private fun validateUserName(name:TextView):Boolean
@@ -202,7 +227,7 @@ private fun insertDataToDatabase() {
         }
     }
 
-    @Suppress("UNREACHABLE_CODE")
+
     private fun validatePhone(phone: TextView):Boolean
     {
 
@@ -214,16 +239,13 @@ private fun insertDataToDatabase() {
             phone.setError("Kérlek töltsd ki!")
             return false
         }
-        else if(!Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}\$").matcher(Phone).matches())
-        {
-            phone.setError("Helytelen jelszó!")
-            return false
-        }
         else
         {
             return true
         }
     }
+
+
 
     private fun validateAdress(adress: TextView):Boolean
     {
@@ -282,17 +304,5 @@ override fun onRequestPermissionsResult(
     }
 }
 
-private fun DatabaseLoad()
-{
-   // userViewModel?.readAllData()?.observe(this
-   // ) {
-        //if (it != null) {
-           // user = it
-            //toggleEditMode
 
-       // } else {
-            //valami
-       // }
-    //}
-}
 }

@@ -8,8 +8,12 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import com.example.restaurants.data.restaurants.RestaurantViewModel
 
 class SplashActivity : AppCompatActivity() {
+
+    lateinit var restaurantViewModel: RestaurantViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -25,6 +29,7 @@ class SplashActivity : AppCompatActivity() {
         val time = 3000
 
         val intent = Intent(this,MainActivity::class.java)
+restaurantViewModel = ViewModelProvider(this).get(RestaurantViewModel::class.java)
 
         Handler().postDelayed(
             {
@@ -34,5 +39,12 @@ class SplashActivity : AppCompatActivity() {
         )
 
 
+    }
+
+    private fun addRestaurants()
+    {
+        val London = arrayOf(
+                arrayOf("")
+        )
     }
 }

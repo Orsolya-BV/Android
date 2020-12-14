@@ -30,6 +30,14 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         //setSupportActionBar(toolbar)
         mDrawer =findViewById<DrawerLayout>(R.id.mDrawer)
 
+        //atvesszuk az adatokat
+        val name = intent.getStringExtra("name")
+        val adress = intent.getStringExtra("adress")
+        val email = intent.getStringExtra("email")
+        val phone = intent.getStringExtra("phone")
+
+
+
          profileFragment = ProfileFragment()
          listFragment = ListFragment()
          addFragment = AddFragment()
@@ -37,12 +45,22 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         navigationView =findViewById<NavigationView>(R.id.navigation)
         navigationView.setNavigationItemSelectedListener(this)
+        //betesszuk a header elemeibe
 
-      /*
+      //  val headerView = navigationView.getHeaderView(0)
+      //  headerView.findViewById<TextView>(R.id.header_name).text = name
+      //  headerView.findViewById<TextView>(R.id.header_adress).text = adress
+     //   headerView.findViewById<TextView>(R.id.header_email).text = email
+       // headerView.findViewById<TextView>(R.id.header_phone).text = phone
+
         val headerView = navigationView.getHeaderView(0)
-        val textView = headerView.findViewById<TextView>(R.id.headerText)
-        textView.setText("alma")
-*/
+        val textView = headerView.findViewById<TextView>(R.id.header_name)
+        textView.text = name
+        headerView.findViewById<TextView>(R.id.header_adress).text = adress
+        headerView.findViewById<TextView>(R.id.header_email).text = email
+         headerView.findViewById<TextView>(R.id.header_phone).text = phone
+        //textView.setText("alma")
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
