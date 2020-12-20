@@ -5,21 +5,21 @@ import androidx.room.*
 
 @Dao
 interface RestaurantDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE )
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
 
     suspend fun addRestaurant(restaurant: Restaurant)
 
     @Query("SELECT * FROM restaurant_table ORDER BY id ASC")
-
     fun readAllData(): LiveData<List<Restaurant>>
+
 
     @Query("SELECT * FROM restaurant_table WHERE id == :id ")
     fun getOneRestaurantById(id:Int):LiveData<Restaurant>
 
-    //@Query("SELECT * FROM restaurant_table WHERE favourite == 1")
-
+    @Query("SELECT * FROM restaurant_table WHERE favourite == 1")
     fun getFavouriteRestaurant():LiveData<List<Restaurant>>
 
     @Delete()
-    fun deleteRestaurant(restaurant: Restaurant)
+   suspend fun deleteRestaurant(restaurant: Restaurant)
 }

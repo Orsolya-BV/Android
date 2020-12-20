@@ -27,8 +27,8 @@ import java.util.regex.Pattern
 
 class AddFragment : Fragment() {
 
-    //lateinit var comm:Communicator
-  //  private lateinit var profileImage:ImageView
+   // lateinit var comm:Communicator
+    private lateinit var profileImage:ImageView
     private lateinit var mUserViewModel: UserViewModel
 
     override fun onCreateView(
@@ -80,38 +80,34 @@ companion object
 
 private fun insertDataToDatabase() {
 
-  /*  profileImage = requireActivity().findViewById<ImageView>(R.id.imageView)
+   profileImage = requireActivity().findViewById<ImageView>(R.id.imageView2)
 
     profileImage.setOnClickListener {
 
 
         //check runtime permission
-        //what the heck is this??
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(
-                            requireContext(),
-                            android.Manifest.permission.READ_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_DENIED
-            ) {
 
-                val permission = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        if (ContextCompat.checkSelfPermission(
+                        requireContext(),
+                        android.Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_DENIED
+        ) {
 
-                //show the runtime permission
+            val permission = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
 
-                requestPermissions(permission, PERMISSION_CODE)
-            } else {
-                //permission alredy garanted
+            //show the runtime permission
 
-                pickImageFromGalery();
-            }
+            requestPermissions(permission, PERMISSION_CODE)
         } else {
+            //permission alredy garanted
+
             pickImageFromGalery();
         }
     }
 
 
-    */
+
 
     val userName = requireView().findViewById<TextView>(R.id.editName);
     val userAdress = requireView().findViewById<TextView>(R.id.editAdress)
@@ -123,7 +119,7 @@ private fun insertDataToDatabase() {
     if(inputCheck(userName,userEmail,userPhone,userAdress))
     {
         //Creat user object
-     //  val user = User(0, userName?.text.toString(),Integer.parseInt(profileImage.toString()),userAdress?.text.toString(),userPhone?.text.toString(),userEmail?.text.toString())
+     // val user = User(0, userName?.text.toString(),Integer.parseInt(profileImage.toString()),userAdress?.text.toString(),userPhone?.text.toString(),userEmail?.text.toString())
 
          val user = User(0,userName?.text.toString(),userAdress?.text.toString(),userPhone?.text.toString(),userEmail.text.toString())
         //Add data to database
@@ -139,25 +135,26 @@ private fun insertDataToDatabase() {
         //comm.passDataCom(UserPhone)
        // comm.passDataCom(UserEmail)
 
-       // mUserViewModel.activeUser().observe(requireActivity(),
-       // Observer {
-         //   if(it !=null)
-         //   {
-                //val intent = Intent(requireActivity(),MainActivity::class.java)
-                //intent.putExtra("id",it.user_id.toString())
-                //intent.putExtra("name",it.user_name)
-                //intent.putExtra("adress",it.user_adress)
-               // intent.putExtra("phone",it.user_phone_number)
-               // intent.putExtra("image",it.user_image.toString())
-                //startActivity(intent)
-          //      findNavController().navigate(R.id.action_addFragment_to_profileFragment)
-           // }
-       // })
-   // }else
-   // {
-    //    Toast.makeText(requireContext(),"BAD!",Toast.LENGTH_LONG).show()
+       mUserViewModel.activeUser().observe(requireActivity(),
+        Observer {
+            if(it !=null)
+            {
+                val intent = Intent(requireActivity(),MainActivity::class.java)
+                intent.putExtra("id",it.user_id.toString())
+                intent.putExtra("name",it.user_name)
+                intent.putExtra("adress",it.user_adress)
+                intent.putExtra("phone",it.user_phone_number)
+              //intent.putExtra("image",it.user_image.toString())
+                startActivity(intent)
+                requireActivity().finish()
+             //   findNavController().navigate(R.id.action_addFragment_to_profileFragment)
+            }
+        })
+    }else
+    {
+       Toast.makeText(requireContext(),"BAD!",Toast.LENGTH_LONG).show()
     }
-
+/*
         mUserViewModel.activeUser().observe(requireActivity(), Observer
                 {
                     if(it != null)
@@ -179,11 +176,14 @@ private fun insertDataToDatabase() {
                     }
                 })
 
+
+ */
 }
 
     private fun inputCheck(name: TextView, email: TextView, phone: TextView,adress:TextView): Boolean {
 
-        return (validateUserName(name) && validateEmail(email) && validateAdress(adress))
+       // return (validateUserName(name) && validateEmail(email) && validateAdress(adress))
+        return !(name.text.isEmpty() && email.text.isEmpty() && phone.text.isEmpty() && adress.text.isEmpty())
 
     }
     private fun validateUserName(name:TextView):Boolean

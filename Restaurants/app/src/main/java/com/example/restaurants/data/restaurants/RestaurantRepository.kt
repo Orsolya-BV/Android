@@ -24,7 +24,7 @@ class RestaurantRepository(private val restaurantDao: RestaurantDao) {
         return restaurantDao.getFavouriteRestaurant()
     }
 
-    fun deleteRestaurant(restaurant: Restaurant)
+    suspend fun deleteRestaurant(restaurant: Restaurant)
     {
         restaurantDao.deleteRestaurant(restaurant)
     }

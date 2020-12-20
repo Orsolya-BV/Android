@@ -8,10 +8,10 @@ import com.example.restaurants.data.user.User
 import com.example.restaurants.data.user.UserDao
 
 
-@Database(entities = [User::class],version = 1,exportSchema = false)
+@Database(entities = [Restaurant::class],version = 1,exportSchema = false)
 abstract class RestaurantDatabase: RoomDatabase() {
 
-    abstract fun userDao(): UserDao
+    abstract fun restaurantDao(): RestaurantDao
 
     companion object
     {

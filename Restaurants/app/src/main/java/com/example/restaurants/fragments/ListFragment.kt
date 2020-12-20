@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,11 +32,9 @@ class ListFragment : Fragment() {
         RestaurantListAdapter()
     }
     lateinit var restaurants:List<Restaurant>
-
+    lateinit var view:AutoCompleteTextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(
@@ -58,12 +54,20 @@ class ListFragment : Fragment() {
         this.viewModel = ViewModelProvider(this, viewModelFactory).get(ListViewModel::class.java)
 
        // var name = view?.findViewById<TextView>(R.id.search)?.text.toString()
+//set cities
+        viewModel.getCities()
+        viewModel.cities.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                val cities: List<String> = response.body()!!.cities
+                //view
+
+            }
+        }
 
 
-
-       viewModel.getLondonRestaurants("London")
+        // viewModel.getLondonRestaurants("London")
        // viewModel.getLondonRestaurantsWithPrice2("London",2)
-        viewModel.myResponse.observe(viewLifecycleOwner
+      /*  viewModel.myResponse.observe(viewLifecycleOwner
         ) { response ->
             if (response.isSuccessful) {
                 response.body()?.let { myAdapter.setData(it) }
@@ -72,15 +76,10 @@ class ListFragment : Fragment() {
                 Toast.makeText(context,response.code(),Toast.LENGTH_LONG).show()
             }
         }
+
+       */
         return view
 
     }
 
-
-            private fun setupRecyclerView()
-            {
-                recyclerView.adapter = myAdapter
-                recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-            }
 }

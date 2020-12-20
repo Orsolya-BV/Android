@@ -24,12 +24,16 @@ class ProfileFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        //outName = arguments?.getString("Username")
-      //  view.findViewById<TextView>(R.id.editedName)
-        //view.text
-
+      //  val name = intent.getStringExtra("name")
+      //  val adress = intent.getStringExtra("adress")
+      //  val email = intent.getStringExtra("email")
+      //  val phone = intent.getStringExtra("phone")
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+
+    }
 }

@@ -29,23 +29,18 @@ class RestaurantViewModel(application: Application): AndroidViewModel(applicatio
         return repository.readAllData()
     }
 
-    fun getOneRestaurantById(id:Int):LiveData<Restaurant>
-    {
+    fun getOneRestaurantById(id: Int): LiveData<Restaurant> {
         return repository.getOneRestaurantById(id)
     }
 
-    fun getFavouriteRestaurant():LiveData<List<Restaurant>>
-    {
+    fun getFavouriteRestaurant(): LiveData<List<Restaurant>> {
         return repository.getFavouriteRestaurant()
     }
 
-    fun deleteRestaurant(restaurant: Restaurant)
-    {
+    suspend fun deleteRestaurant(restaurant: Restaurant) {
         repository.deleteRestaurant(restaurant)
     }
+
+
+
 }
-
-    private fun RestaurantDatabase.restaurantDao(): RestaurantDao {
-            return restaurantDao()
-        }
-
