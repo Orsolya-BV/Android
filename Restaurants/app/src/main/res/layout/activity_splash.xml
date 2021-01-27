@@ -19,17 +19,23 @@
 
         <ImageView
             android:id="@+id/logo_image"
-            android:layout_width="400dp"
+            android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
+            android:background="@color/white"
             android:src="@drawable/logo" />
 
         <TextView
             android:id="@+id/title_restaurants"
+            android:width="150dp"
+            android:height="50dp"
             android:layout_marginTop="10dp"
+            android:textSize="25dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/green"
+            android:textColor="@color/white"
+            android:background="@color/green"
             android:text="@string/title" />
 
         <ProgressBar
@@ -37,6 +43,6 @@
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/red"/>
+            android:indeterminateTint="@color/black"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,6 +36,7 @@
         android:layout_marginTop="108dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -73,6 +74,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
+        android:textColor="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/adress"
@@ -99,6 +101,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:ems="10"
+        android:textColor="@color/black"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/phone"
         app:layout_constraintTop_toBottomOf="@+id/editedAdress" />
@@ -124,6 +127,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:textColor="@color/black"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/editedPhone" />

@@ -14,6 +14,7 @@ import com.example.restaurants.fragments.ListFragment
 class RestaurantAdapter(private val parent:ListFragment,private val listener:AdapterView.OnItemClickListener):RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
 
     private var restaurantList:MutableList<Restaurant> = mutableListOf()
+
     inner class RestaurantViewHolder(itemView: View):RecyclerView.ViewHolder(itemView),View.OnClickListener
     {
         var name: TextView = itemView.findViewById(R.id.name_restaurant)

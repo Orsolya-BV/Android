@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/add_layout"
+ android:layout_margin="40dp"
+    android:background="@color/fej"
     tools:context=".fragments.AddFragment">
 
-
+<!--
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="200dp"
@@ -20,41 +22,41 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:src="@drawable/logo" />
-
+-->
     <EditText
         android:id="@+id/editName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="70dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
-        android:textColor="@color/green"
-        android:textStyle="bold"
-        android:textColorHint="@color/green"
         android:hint="Name"
         android:inputType="textPersonName"
+        android:textColor="@color/red"
+        android:textColorHint="@color/green"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editAdress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editAdress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="70dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="25dp"
-        android:textColor="@color/green"
-        android:textStyle="bold"
-        android:textColorHint="@color/green"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Adress"
         android:inputType="textPersonName"
+        android:textColor="@color/red"
+        android:textColorHint="@color/green"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editPhone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -63,15 +65,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
-        android:textColor="@color/green"
-        android:textStyle="bold"
-        android:textColorHint="@color/green"
         android:hint="Phone number"
         android:inputType="phone"
+        android:textColor="@color/red"
+        android:textColorHint="@color/green"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editEmail"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -80,15 +83,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="36dp"
         android:ems="10"
         android:hint="Email"
-        android:textColor="@color/green"
-        android:textStyle="bold"
-        android:textColorHint="@color/green"
         android:inputType="textEmailAddress"
+        android:textColor="@color/red"
+        android:textColorHint="@color/green"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -97,12 +101,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="80dp"
-
+        android:layout_marginBottom="60dp"
+        android:background="@color/fej"
         android:text="Save"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/green"
-        android:textColor="@color/white" />
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

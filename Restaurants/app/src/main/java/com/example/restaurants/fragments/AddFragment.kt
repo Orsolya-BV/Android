@@ -3,9 +3,7 @@ package com.example.restaurants.fragments
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,8 +15,6 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.restaurants.Communicator
 import com.example.restaurants.MainActivity
 import com.example.restaurants.R
 import com.example.restaurants.data.user.User
@@ -80,7 +76,7 @@ companion object
 
 private fun insertDataToDatabase() {
 
-   profileImage = requireActivity().findViewById<ImageView>(R.id.imageView2)
+   //profileImage = requireActivity().findViewById<ImageView>(R.id.imageView2)
 
     profileImage.setOnClickListener {
 
@@ -129,11 +125,7 @@ private fun insertDataToDatabase() {
         Toast.makeText(requireContext(),"Succesfully added!",Toast.LENGTH_LONG).show()
         //navigate back to profile fragment
 
-        // comm.passDataCom(UserName)
-       // comm.passDataCom(UserAdress)
-        //comm.passDataCom(profileImage.toString())
-        //comm.passDataCom(UserPhone)
-       // comm.passDataCom(UserEmail)
+
 
        mUserViewModel.activeUser().observe(requireActivity(),
         Observer {
@@ -147,7 +139,7 @@ private fun insertDataToDatabase() {
               //intent.putExtra("image",it.user_image.toString())
                 startActivity(intent)
                 requireActivity().finish()
-             //   findNavController().navigate(R.id.action_addFragment_to_profileFragment)
+             //findNavController().navigate(R.id.action_addFragment_to_profileFragment)
             }
         })
     }else
