@@ -5,81 +5,54 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurants.R
 import com.example.restaurants.data.restaurants.Restaurant
 import com.example.restaurants.data.restaurants.RestaurantAdapter
-import com.example.restaurants.data.restaurants.RestaurantListAdapter
-import com.example.restaurants.data.restaurants.RestaurantViewModel
 import com.example.restaurants.repository.Repository
 import com.example.restaurants.viewmodel.ListViewModel
 import com.example.restaurants.viewmodel.ListViewModelFactory
 
 class ListFragment : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
-    //private lateinit var layoutManager: RecyclerView.LayoutManager
-  //  private lateinit var recyclerViewA: RestaurantViewAdapter
-//
-    private lateinit var restaurantViewModel: RestaurantViewModel
-
-    private lateinit var viewModel: ListViewModel
-    private val myAdapter by lazy {
-        RestaurantListAdapter()
-    }
-    lateinit var restaurants:List<Restaurant>
-    lateinit var view:AutoCompleteTextView
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    lateinit var recyclerView: RecyclerView
+    lateinit var list: MutableList<Restaurant>
+    lateinit var viewModel: ListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
+        return inflater.inflate(R.layout.fragment_list, container, false)
 
-        recyclerView = view?.findViewById<RecyclerView>(R.id.restaurant_recyclerview)!!
+    }
 
-        recyclerView.adapter = myAdapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        //setupRecyclerView()
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //viewmodel
         val repository = Repository()
-        val viewModelFactory = ListViewModelFactory(repository)
-        this.viewModel = ViewModelProvider(this, viewModelFactory).get(ListViewModel::class.java)
+        val listViewModelFactory = ListViewModelFactory(repository)
+        viewModel = ViewModelProvider(requireActivity(),listViewModelFactory).get(ListViewModel::class.java)
+        val lista = viewModel.myResponse.value
 
-       // var name = view?.findViewById<TextView>(R.id.search)?.text.toString()
-//set cities
-        viewModel.getCities()
-        viewModel.cities.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                val cities: List<String> = response.body()!!.cities
-                //view
-
-            }
+        //recyclerview
+        recyclerView = view.findViewById(R.id.restaurant_recyclerview)
+        if (lista != null) {
+            list = lista
         }
+       /* var restaurant =Restaurant(1,"a","valami","a","a","a","a","a","a",1f,1f,
+        1,"a","a","a",false)
+        list.add(restaurant)
 
-
-        // viewModel.getLondonRestaurants("London")
-       // viewModel.getLondonRestaurantsWithPrice2("London",2)
-      /*  viewModel.myResponse.observe(viewLifecycleOwner
-        ) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let { myAdapter.setData(it) }
-            }else
-            {
-                Toast.makeText(context,response.code(),Toast.LENGTH_LONG).show()
-            }
-        }
-
-       */
-        return view
-
+        */
+        recyclerView.adapter = RestaurantAdapter(
+            list
+        )
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+        
     }
 
 }

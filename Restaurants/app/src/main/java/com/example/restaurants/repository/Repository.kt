@@ -1,7 +1,6 @@
 package com.example.restaurants.repository
 
 import com.example.restaurants.api.RetrofitInstance
-import com.example.restaurants.data.restaurants.CitiesResponseData
 import com.example.restaurants.data.restaurants.Restaurant
 import com.example.restaurants.data.restaurants.RestaurantResponseData
 import retrofit2.Response
@@ -37,13 +36,18 @@ class Repository {
 
      */
 
+    suspend fun getAllRestaurants():Response<RestaurantResponseData>
+    {
+        return RetrofitInstance.api.getAllRestaurants()
+    }
+
+
+
+
     suspend fun getRestaurants(id:Int,city:String):Response<RestaurantResponseData>
     {
         return RetrofitInstance.api.getRestaurants(id,city)
     }
 
-    suspend fun getCities():Response<CitiesResponseData>
-    {
-        return RetrofitInstance.api.getCities()
-    }
+
 }

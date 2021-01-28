@@ -25,8 +25,8 @@ class RestaurantListAdapter:RecyclerView.Adapter<RestaurantListAdapter.Restauran
     override fun onBindViewHolder(holder: RestaurantListViewHolder, position: Int) {
        // holder.itemView.findViewById<ImageView>(R.id.image_restaurant).text = list[position].image_url.toString()
         holder.itemView.findViewById<TextView>(R.id.name_restaurant).text = list[position].name
-        holder.itemView.findViewById<TextView>(R.id.Adress_restaurant).text = list[position].adress
-        holder.itemView.findViewById<TextView>(R.id.phone_restaurant).text = list[position].phone_number
+        holder.itemView.findViewById<TextView>(R.id.Adress_restaurant).text = list[position].address
+        holder.itemView.findViewById<TextView>(R.id.phone_restaurant).text = list[position].phone
 
 
     }

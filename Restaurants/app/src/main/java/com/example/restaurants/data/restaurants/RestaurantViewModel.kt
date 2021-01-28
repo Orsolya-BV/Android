@@ -18,7 +18,7 @@ class RestaurantViewModel(application: Application): AndroidViewModel(applicatio
 
     }
 
-    fun addRestaurant(restaurant: Restaurant) {
+    /*fun addRestaurant(restaurant: Restaurant) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addRestaurant(restaurant)
         }
@@ -41,6 +41,6 @@ class RestaurantViewModel(application: Application): AndroidViewModel(applicatio
         repository.deleteRestaurant(restaurant)
     }
 
-
+*/
 
 }

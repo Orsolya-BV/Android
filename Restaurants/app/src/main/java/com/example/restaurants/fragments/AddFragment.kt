@@ -111,7 +111,7 @@ private fun insertDataToDatabase() {
     val userEmail = requireView().findViewById<TextView>(R.id.editEmail)
 
 
-
+/*
     if(inputCheck(userName,userEmail,userPhone,userAdress))
     {
         //Creat user object
@@ -120,14 +120,15 @@ private fun insertDataToDatabase() {
          val user = User(0,userName?.text.toString(),userAdress?.text.toString(),userPhone?.text.toString(),userEmail.text.toString())
         //Add data to database
 
-        mUserViewModel.addUser(user)
+        //mUserViewModel.addUser(user)
 
         Toast.makeText(requireContext(),"Succesfully added!",Toast.LENGTH_LONG).show()
         //navigate back to profile fragment
 
 
-
-       mUserViewModel.activeUser().observe(requireActivity(),
+*/
+       //mUserViewModel.activeUser().observe(requireActivity(),
+        /*
         Observer {
             if(it !=null)
             {
@@ -145,7 +146,7 @@ private fun insertDataToDatabase() {
     }else
     {
        Toast.makeText(requireContext(),"BAD!",Toast.LENGTH_LONG).show()
-    }
+    } */
 /*
         mUserViewModel.activeUser().observe(requireActivity(), Observer
                 {

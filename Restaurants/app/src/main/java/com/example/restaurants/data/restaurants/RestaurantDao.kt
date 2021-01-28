@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface RestaurantDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+   /* @Insert(onConflict = OnConflictStrategy.REPLACE)
 
     suspend fun addRestaurant(restaurant: Restaurant)
 
@@ -22,4 +22,6 @@ interface RestaurantDao {
 
     @Delete()
    suspend fun deleteRestaurant(restaurant: Restaurant)
+
+    */
 }

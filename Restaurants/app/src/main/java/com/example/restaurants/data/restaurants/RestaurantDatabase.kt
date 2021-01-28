@@ -4,11 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.restaurants.data.user.User
-import com.example.restaurants.data.user.UserDao
 
 
-@Database(entities = [Restaurant::class],version = 1,exportSchema = false)
+@Database(entities = [Restaurant2::class],version = 1,exportSchema = false)
 abstract class RestaurantDatabase: RoomDatabase() {
 
     abstract fun restaurantDao(): RestaurantDao
@@ -30,7 +28,8 @@ abstract class RestaurantDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                         context.applicationContext,RestaurantDatabase::class.java,
                         "restaurant_database"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 return instance
 
