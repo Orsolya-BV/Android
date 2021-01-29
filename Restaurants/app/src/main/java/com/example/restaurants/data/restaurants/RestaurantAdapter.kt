@@ -6,9 +6,12 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.replace
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.restaurants.R
+import com.example.restaurants.fragments.DetailsFragment
 import com.example.restaurants.fragments.ListFragment
 
 class RestaurantAdapter(
@@ -55,6 +58,8 @@ class RestaurantAdapter(
         holder.name.text = restaurantList[position].name.toString()
         holder.adress.text = restaurantList[position].address
         holder.phone.text = restaurantList[position].phone
+
+
 
 
     }

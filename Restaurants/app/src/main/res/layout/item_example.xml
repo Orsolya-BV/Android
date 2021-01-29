@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,52 +7,75 @@
     android:layout_height="300dp"
     android:layout_margin="8dp"
     android:orientation="vertical"
-    android:background="@color/red">
-
-        <TextView
-            android:id="@+id/name_restaurant"
-            android:text="@string/title"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/white"
-            />
-
-        <ImageView
-            android:id="@+id/image_restaurant"
-            android:layout_width="300dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/ic_restaurants" />
+    android:id="@+id/item_example"
+    android:background="@drawable/back_round">
 
     <TextView
-            android:id="@+id/phone_restaurant"
-            android:layout_width="281dp"
-            android:layout_height="40dp"
-        android:textSize="20dp"
-        android:text="+40752703742"
-
-            />
-
-    <LinearLayout
+        android:id="@+id/name_restaurant"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/Adress_restaurant"
-            android:layout_width="281dp"
-            android:layout_height="40dp"
-            android:textSize="20dp"
-            android:text="targu mures"/>
+    <ImageView
+        android:id="@+id/image_restaurant"
+        android:layout_width="299dp"
+        android:layout_height="138dp"
 
-        <ImageView
-            android:id="@+id/favorit_restaurant"
-            android:layout_marginLeft= "20dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_favorite_24" />
-    </LinearLayout>
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_restaurant"
+        app:srcCompat="@drawable/ic_restaurants" />
 
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/phone_restaurant"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:height="25dp"
+        android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_restaurant" />
+
+    <TextView
+        android:id="@+id/Adress_restaurant"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:height="30dp"
+        android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_restaurant" />
+
+    <ImageView
+        android:id="@+id/favorit_restaurant"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_baseline_favorite_24"
+        app:layout_constraintStart_toEndOf="@+id/phone_restaurant"
+        app:layout_constraintTop_toBottomOf="@+id/image_restaurant" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
