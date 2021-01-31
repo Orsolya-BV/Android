@@ -14,7 +14,8 @@ class ListViewModel(private val repository: Repository) :ViewModel(){
 
 
     val myResponse = MutableLiveData<MutableList<Restaurant>>()
-
+    var myValue:Int  = 0
+    //gets the data from the api and passes to the myResponse variable
     fun getAllRestaurants()
     {
         viewModelScope.launch {

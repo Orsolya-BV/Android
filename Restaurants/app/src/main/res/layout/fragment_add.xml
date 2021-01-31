@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/add_layout"
- android:layout_margin="40dp"
-    android:background="@color/fej"
+    android:background="@drawable/background"
     tools:context=".fragments.AddFragment">
 
 <!--
@@ -23,13 +23,15 @@
         app:layout_constraintVertical_bias="0.0"
         tools:src="@drawable/logo" />
 -->
+
     <EditText
         android:id="@+id/editName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/fej"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
@@ -38,16 +40,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editAdress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editAdress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/fej"
         android:ems="10"
         android:hint="Adress"
         android:inputType="textPersonName"
@@ -56,16 +59,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editPhone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/fej"
         android:ems="10"
         android:hint="Phone number"
         android:inputType="phone"
@@ -79,11 +83,12 @@
 
     <EditText
         android:id="@+id/editEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/fej"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -97,8 +102,8 @@
 
     <Button
         android:id="@+id/button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="159dp"
+        android:layout_height="57dp"
         android:layout_marginStart="160dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="60dp"

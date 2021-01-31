@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.replace
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,8 @@ import com.example.restaurants.fragments.DetailsFragment
 import com.example.restaurants.fragments.ListFragment
 
 class RestaurantAdapter(
-    private var restaurantList:MutableList<Restaurant>
+    private var restaurantList:MutableList<Restaurant>,
+    private var listener: OnItemClickListener
     ) :RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>(){
 
 
@@ -28,25 +30,23 @@ class RestaurantAdapter(
         val favourite: ImageView = itemView.findViewById(R.id.favorit_restaurant)
 
         init {
-            itemView.setOnClickListener(this)
-            favourite.setOnClickListener(this)
+           itemView.setOnClickListener(this)
+           // favourite.setOnClickListener(this)
         }
+
         override fun onClick(v: View?) {
             val position = adapterPosition
-            if (v != null)
-            {
-                if(position != RecyclerView.NO_POSITION)
-                {
-                    if(v.id == favourite.id)
-                    {
-                       // listener.onItemClick(parent,v,position,id)
-                    }else
-                    {
-                        //listener.onItemClick(position)
-                    }
-                }
+            if (position != RecyclerView.NO_POSITION){
+                listener.onItemClick(position)
             }
         }
+
+
+    }
+
+    interface OnItemClickListener
+    {
+        fun onItemClick(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {

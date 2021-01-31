@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment"
+    android:background="@drawable/background"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout

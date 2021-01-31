@@ -17,16 +17,28 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener{
 
-
+    lateinit var  mDrawer: DrawerLayout
+    lateinit var profileFragment: ProfileFragment
+    lateinit var addFragment: AddFragment
+    lateinit var listFragment: ListFragment
+    lateinit var toolbar:Toolbar
+    lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val drawerLayout = this.findViewById<DrawerLayout>(R.id.mDrawer)
-        val navigationView = this.findViewById<NavigationView>(R.id.navigation)
 
-      //  navigationView.onNavigationItemSelected(this)
+        mDrawer =findViewById<DrawerLayout>(R.id.mDrawer)
+
+
+        profileFragment = ProfileFragment()
+        listFragment = ListFragment()
+        addFragment = AddFragment()
+
+
+        navigationView =findViewById<NavigationView>(R.id.navigation)
+        navigationView.setNavigationItemSelectedListener(this)
 
 
 
@@ -34,23 +46,38 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
+        //letrehozzuk a fragmentseket
         when(item.itemId)
         {
             R.id.go_profile -> {
-                //profile fragment
-                val profileFragment = ProfileFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.profile,profileFragment).commit()
+                this.profileFragment = ProfileFragment()
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, profileFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
             }
-            R.id.go_login ->
-            {
-                //login
-                val loginFragment = AddFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.go_login,loginFragment).commit()
+            R.id.go_restaurants -> {
+                this.listFragment = ListFragment()
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, listFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
             }
+
+            R.id.go_login-> {
+                this.addFragment = AddFragment()
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, addFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+            }
+
+
         }
+        mDrawer.closeDrawer(GravityCompat.START)
         return true
     }
+
 
 
 }

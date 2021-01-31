@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurants.R
@@ -15,7 +16,7 @@ import com.example.restaurants.repository.Repository
 import com.example.restaurants.viewmodel.ListViewModel
 import com.example.restaurants.viewmodel.ListViewModelFactory
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(),RestaurantAdapter.OnItemClickListener {
 
     lateinit var recyclerView: RecyclerView
     lateinit var list: MutableList<Restaurant>
@@ -48,11 +49,21 @@ class ListFragment : Fragment() {
 
         */
         recyclerView.adapter = RestaurantAdapter(
-            list
+            list,this
         )
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
-        
+
+
+
+    }
+
+    override fun onItemClick(position: Int) {
+        viewModel.myValue = position
+        //navigate to details fragment
+        findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
+
+
     }
 
 }
