@@ -2,9 +2,13 @@ package com.example.restaurants.data.restaurants
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.restaurants.data.user.User
 
 @Dao
 interface RestaurantDao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addUser(user: User)
 
    /* @Insert(onConflict = OnConflictStrategy.REPLACE)
 

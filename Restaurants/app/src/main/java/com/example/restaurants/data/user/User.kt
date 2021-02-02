@@ -11,5 +11,6 @@ data class User(
     //val user_image:Int,
     val user_adress:String,
     val user_phone_number:String,
-    val user_email:String
+    val user_email:String,
+    val user_password:String
 )

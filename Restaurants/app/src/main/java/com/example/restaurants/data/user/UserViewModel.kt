@@ -2,18 +2,22 @@ package com.example.restaurants.data.user
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.restaurants.data.restaurants.RestaurantDatabase
+import com.example.restaurants.repository.ApiRepository
+import com.example.restaurants.repository.DatabaseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application):AndroidViewModel(application) {
 
-   /* private val repository: UserRepository
+
+
+    private val repository: DatabaseRepository
 
     init {
-        val userDao = UserDatabase.getDatabase(application).userDao()
-        repository = UserRepository(userDao)
+        val userDao = RestaurantDatabase.getDatabase(application).restaurantDao()
+        repository = DatabaseRepository(userDao)
     }
 
     fun addUser(user: User)
@@ -23,7 +27,7 @@ class UserViewModel(application: Application):AndroidViewModel(application) {
         }
     }
 
-
+/*
     fun readAllData():LiveData<User>
     {
         return repository.readAllData()

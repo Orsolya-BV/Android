@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,61 +24,82 @@ import java.util.regex.Pattern
 
 class AddFragment : Fragment() {
 
-   // lateinit var comm:Communicator
-    private lateinit var profileImage:ImageView
-    private lateinit var mUserViewModel: UserViewModel
+    // lateinit var comm:Communicator
+    //private lateinit var profileImage:ImageView
+     private lateinit var mUserViewModel: UserViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_add, container, false)
+        val view = inflater.inflate(R.layout.fragment_add, container, false)
 
 
-   // mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         //mUserViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
-      //  mUserViewModel.readAllData().observe(viewLifecycleOwner, Observer
-       //     {
+        //  mUserViewModel.readAllData().observe(viewLifecycleOwner, Observer
+        //     {
         //        user ->
         //    })
 
 
-    return view
-}
+        return view
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().run {
+
             //viewmodel
-           mUserViewModel= ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+            // mUserViewModel= ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
             //sav button
             val save = view.findViewById<Button>(R.id.button_save)
             save.setOnClickListener {
                 insertDataToDatabase()
-               // findNavController().navigate(R.id.action_addFragment_to_profileFragment)
+                // findNavController().navigate(R.id.action_addFragment_to_profileFragment)
 
             }
-        }
+
 
     }
 
 
-companion object
-{
-    //imagePick code
-    private val IMAGE_PICK_CODE = 1000;
+    companion object {
+        //imagePick code
+        private val IMAGE_PICK_CODE = 1000;
 
-    //permission code
-    private val PERMISSION_CODE =1001;
-}
+        //permission code
+        private val PERMISSION_CODE = 1001;
+    }
 
-private fun insertDataToDatabase() {
+    private fun insertDataToDatabase() {
 
-   //profileImage = requireActivity().findViewById<ImageView>(R.id.imageView2)
+        val profileImage =view?.findViewById<ImageView>(R.id.imageView2)
+        val userName = view?.findViewById<TextView>(R.id.editName);
+        val userAdress = view?.findViewById<TextView>(R.id.editAdress)
+        val userPhone = view?.findViewById<TextView>(R.id.editPhone)
+        val userEmail = view?.findViewById<TextView>(R.id.editEmail)
+        val userPassword = view?.findViewById<TextView>(R.id.editpassword)
 
+
+
+        val uName = userName?.text.toString()
+        val uAdres = userAdress?.text.toString()
+        val uPhone = userPhone?.text.toString()
+        val uEmail = userEmail?.text.toString()
+        val uPassword = userPassword?.text.toString()
+
+
+        val user1 =User(0,uName,uAdres,uPhone,uEmail,uPassword)
+        mUserViewModel.addUser(user1)
+
+        //Log.d("User name",uName)
+      //  Log.d("User password",uPassword)
+
+
+        /*
     profileImage.setOnClickListener {
 
 
@@ -104,13 +126,7 @@ private fun insertDataToDatabase() {
 
 
 
-
-    val userName = requireView().findViewById<TextView>(R.id.editName);
-    val userAdress = requireView().findViewById<TextView>(R.id.editAdress)
-    val userPhone = requireView().findViewById<TextView>(R.id.editPhone)
-    val userEmail = requireView().findViewById<TextView>(R.id.editEmail)
-
-
+ */
 /*
     if(inputCheck(userName,userEmail,userPhone,userAdress))
     {
@@ -127,7 +143,7 @@ private fun insertDataToDatabase() {
 
 
 */
-       //mUserViewModel.activeUser().observe(requireActivity(),
+        //mUserViewModel.activeUser().observe(requireActivity(),
         /*
         Observer {
             if(it !=null)
@@ -171,8 +187,8 @@ private fun insertDataToDatabase() {
 
 
  */
-}
-
+    }
+/*
     private fun inputCheck(name: TextView, email: TextView, phone: TextView,adress:TextView): Boolean {
 
        // return (validateUserName(name) && validateEmail(email) && validateAdress(adress))
@@ -298,4 +314,14 @@ override fun onRequestPermissionsResult(
 }
 
 
+ */
+
+
+
+
+ }
+
+
+
+ */
 }

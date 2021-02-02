@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.restaurants.R
-import com.example.restaurants.repository.Repository
+import com.example.restaurants.repository.ApiRepository
 import com.example.restaurants.viewmodel.ListViewModel
 import com.example.restaurants.viewmodel.ListViewModelFactory
-
-import java.util.*
 
 class SplashFragment : Fragment() {
 
@@ -32,7 +30,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val repository = Repository()
+        val repository = ApiRepository()
         val listViewModelFactory = ListViewModelFactory(repository)
         listViewModel = ViewModelProvider(requireActivity(),listViewModelFactory).get(ListViewModel::class.java)
 

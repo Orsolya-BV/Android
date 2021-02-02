@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurants.R
-import com.example.restaurants.repository.Repository
+import com.example.restaurants.repository.ApiRepository
 import com.example.restaurants.viewmodel.ListViewModel
 import com.example.restaurants.viewmodel.ListViewModelFactory
 
@@ -31,7 +30,7 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val repository = Repository()
+        val repository = ApiRepository()
         val listViewModelFactory = ListViewModelFactory(repository)
         viewModel = ViewModelProvider(requireActivity(),listViewModelFactory).get(ListViewModel::class.java)
 

@@ -2,10 +2,12 @@ package com.example.restaurants.repository
 
 import com.example.restaurants.api.RetrofitInstance
 import com.example.restaurants.data.restaurants.Restaurant
+import com.example.restaurants.data.restaurants.RestaurantDao
 import com.example.restaurants.data.restaurants.RestaurantResponseData
+import com.example.restaurants.data.user.User
 import retrofit2.Response
 
-class Repository {
+class ApiRepository {
 
     /*
     suspend fun getRestaurant(options: Map<String, String>):Response<List<Restaurant>>

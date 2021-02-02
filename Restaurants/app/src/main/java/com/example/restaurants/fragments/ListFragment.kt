@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurants.R
 import com.example.restaurants.data.restaurants.Restaurant
 import com.example.restaurants.data.restaurants.RestaurantAdapter
-import com.example.restaurants.repository.Repository
+import com.example.restaurants.repository.ApiRepository
 import com.example.restaurants.viewmodel.ListViewModel
 import com.example.restaurants.viewmodel.ListViewModelFactory
 
@@ -33,7 +33,7 @@ class ListFragment : Fragment(),RestaurantAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //viewmodel
-        val repository = Repository()
+        val repository = ApiRepository()
         val listViewModelFactory = ListViewModelFactory(repository)
         viewModel = ViewModelProvider(requireActivity(),listViewModelFactory).get(ListViewModel::class.java)
         val lista = viewModel.myResponse.value

@@ -4,12 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.restaurants.data.restaurants.Restaurant
-import com.example.restaurants.data.restaurants.RestaurantResponseData
-import com.example.restaurants.repository.Repository
+import com.example.restaurants.repository.ApiRepository
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
-class ListViewModel(private val repository: Repository) :ViewModel(){
+class ListViewModel(private val repository: ApiRepository) :ViewModel(){
 
 
 

@@ -9,7 +9,7 @@
     android:background="@drawable/background"
     tools:context=".fragments.AddFragment">
 
-<!--
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="200dp"
@@ -17,12 +17,11 @@
         android:layout_marginTop="68dp"
         app:layout_constraintBottom_toTopOf="@+id/editName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:src="@drawable/logo" />
--->
 
     <EditText
         android:id="@+id/editName"
@@ -30,7 +29,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/fej"
         android:ems="10"
         android:hint="Name"
@@ -40,7 +39,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editAdress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -49,7 +48,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="4dp"
         android:background="@color/fej"
         android:ems="10"
         android:hint="Adress"
@@ -59,7 +58,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editPhone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -68,7 +67,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/fej"
         android:ems="10"
         android:hint="Phone number"
@@ -78,7 +77,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -87,7 +86,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="80dp"
         android:background="@color/fej"
         android:ems="10"
         android:hint="Email"
@@ -97,8 +96,24 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editpassword"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/fej"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@color/red"
+        android:textColorHint="@color/green"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
     <Button
         android:id="@+id/button_save"
