@@ -16,6 +16,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.restaurants.MainActivity
 import com.example.restaurants.R
 import com.example.restaurants.data.user.User
@@ -36,8 +38,8 @@ class AddFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
 
-         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        //mUserViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+       //  mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mUserViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
         //  mUserViewModel.readAllData().observe(viewLifecycleOwner, Observer
         //     {
@@ -58,8 +60,7 @@ class AddFragment : Fragment() {
             val save = view.findViewById<Button>(R.id.button_save)
             save.setOnClickListener {
                 insertDataToDatabase()
-                // findNavController().navigate(R.id.action_addFragment_to_profileFragment)
-
+                view.findNavController().navigate(R.id.action_listFragment_to_profileFragment)
             }
 
 
@@ -83,8 +84,6 @@ class AddFragment : Fragment() {
         val userEmail = view?.findViewById<TextView>(R.id.editEmail)
         val userPassword = view?.findViewById<TextView>(R.id.editpassword)
 
-
-
         val uName = userName?.text.toString()
         val uAdres = userAdress?.text.toString()
         val uPhone = userPhone?.text.toString()
@@ -94,6 +93,9 @@ class AddFragment : Fragment() {
 
         val user1 =User(0,uName,uAdres,uPhone,uEmail,uPassword)
         mUserViewModel.addUser(user1)
+        mUserViewModel.userValue = user1
+
+
 
         //Log.d("User name",uName)
       //  Log.d("User password",uPassword)

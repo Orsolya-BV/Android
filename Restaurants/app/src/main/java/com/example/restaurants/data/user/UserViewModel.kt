@@ -14,10 +14,11 @@ class UserViewModel(application: Application):AndroidViewModel(application) {
 
 
     private val repository: DatabaseRepository
-
+    var userValue:User?
     init {
         val userDao = RestaurantDatabase.getDatabase(application).restaurantDao()
         repository = DatabaseRepository(userDao)
+        userValue = null
     }
 
     fun addUser(user: User)

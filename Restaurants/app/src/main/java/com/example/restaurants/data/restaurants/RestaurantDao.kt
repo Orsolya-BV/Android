@@ -17,7 +17,6 @@ interface RestaurantDao {
     @Query("SELECT * FROM restaurant_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<Restaurant>>
 
-
     @Query("SELECT * FROM restaurant_table WHERE id == :id ")
     fun getOneRestaurantById(id:Int):LiveData<Restaurant>
 
