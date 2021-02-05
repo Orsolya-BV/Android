@@ -8,11 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment"
     android:background="@drawable/background"
+
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
     <ImageView
         android:id="@+id/imageView"
@@ -29,122 +31,133 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06" />
 
-    <TextView
-        android:id="@+id/editedName"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="108dp"
-        android:ems="10"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:background="@color/red"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <TextView
+            android:id="@+id/editedName"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/yellow"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/editedAdress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="307dp"
-        android:textColor="@color/black"
-        android:background="@color/green"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="330dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/adress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/adress"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        <TextView
+            android:id="@+id/adress"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/green"
 
-        android:background="@color/green"
-        android:gravity="center"
-        android:text="Adress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+            android:gravity="center"
+            android:text="Adress"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/phone"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/editedAdress"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:textColor="@color/black"
-        android:background="@color/red"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/adress"
-        app:layout_constraintTop_toBottomOf="@+id/editedName" />
+        <TextView
+            android:id="@+id/editedAdress"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/yellow"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/editedPhone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/adress" />
 
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:background="@color/green"
-        android:text="Phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adress" />
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="Phone"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/editedPhone"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:textColor="@color/black"
-        android:background="@color/red"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/phone"
-        app:layout_constraintTop_toBottomOf="@+id/editedAdress" />
+        <TextView
+            android:id="@+id/editedPhone"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/yellow"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/editedEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/phone" />
 
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:background="@color/green"
-        android:gravity="center"
-        android:text="Email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="160dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="Email"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/editedEmail"
             android:layout_width="230dp"
             android:layout_height="40dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="160dp"
+            android:background="@color/yellow"
             android:ems="10"
             android:gravity="center"
             android:inputType="textPersonName"
             android:textColor="@color/black"
-            android:background="@color/red"
-            android:textSize="30dp"
-            app:layout_constraintStart_toEndOf="@+id/email"
-            app:layout_constraintTop_toBottomOf="@+id/editedPhone" />
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/email" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

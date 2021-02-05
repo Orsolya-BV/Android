@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,12 +49,29 @@ class ListFragment : Fragment(),RestaurantAdapter.OnItemClickListener {
         list.add(restaurant)
 
         */
-        recyclerView.adapter = RestaurantAdapter(
-            list,this
+        val recyclerViewAdapter =RestaurantAdapter(
+                list,this
         )
+        recyclerView.adapter = recyclerViewAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
 
+        //search city
+        val searchCity = view.findViewById<SearchView>(R.id.searchCity)
+        searchCity.setOnQueryTextListener(object : SearchView.OnQueryTextListener
+        {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+              recyclerViewAdapter.filter.filter(newText)
+                recyclerView.recycledViewPool.clear()
+                recyclerViewAdapter.notifyDataSetChanged()
+                return true
+            }
+
+        })
 
 
     }

@@ -23,6 +23,7 @@
         app:navGraph = "@navigation/nav_graph"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:headerLayout="@layout/header"
-        android:background="@color/red"
+        android:background="@color/yellow"
         app:menu="@menu/drawer"
         >
 

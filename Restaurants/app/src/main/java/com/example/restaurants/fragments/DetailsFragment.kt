@@ -40,12 +40,13 @@ class DetailsFragment : Fragment() {
         val adress = view.findViewById<TextView>(R.id.details_adress)
         val phone = view.findViewById<TextView>(R.id.details_phone)
         val price = view.findViewById<TextView>(R.id.details_price)
+        val city = view.findViewById<TextView>(R.id.detail_city)
 
         name.text = restaurant?.name
         adress.text = restaurant?.address
         phone.text = restaurant?.phone
         price.text = restaurant?.price.toString()
-
+        city.text = restaurant?.city
 
     }
 }

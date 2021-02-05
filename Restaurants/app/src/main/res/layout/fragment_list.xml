@@ -7,8 +7,38 @@
     android:id="@+id/list_layout"
     tools:context=".fragments.ListFragment"
     android:background="@drawable/background"
-    android:padding="8dp">
+    >
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <Toolbar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/searchCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -17,10 +47,13 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="1dp"
+            android:layout_marginTop="40dp"
             android:clipToPadding="false"
             android:padding="5dp"
 
-            tools:listitem="@layout/item_example" />
+            tools:listitem="@layout/item_example" >
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

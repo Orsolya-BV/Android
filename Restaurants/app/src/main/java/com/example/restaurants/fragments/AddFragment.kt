@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +12,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.example.restaurants.MainActivity
 import com.example.restaurants.R
 import com.example.restaurants.data.user.User
 import com.example.restaurants.data.user.UserViewModel
@@ -97,9 +92,6 @@ class AddFragment : Fragment() {
 
 
 
-        //Log.d("User name",uName)
-      //  Log.d("User password",uPassword)
-
 
         /*
     profileImage.setOnClickListener {
@@ -146,58 +138,16 @@ class AddFragment : Fragment() {
 
 */
         //mUserViewModel.activeUser().observe(requireActivity(),
-        /*
-        Observer {
-            if(it !=null)
-            {
-                val intent = Intent(requireActivity(),MainActivity::class.java)
-                intent.putExtra("id",it.user_id.toString())
-                intent.putExtra("name",it.user_name)
-                intent.putExtra("adress",it.user_adress)
-                intent.putExtra("phone",it.user_phone_number)
-              //intent.putExtra("image",it.user_image.toString())
-                startActivity(intent)
-                requireActivity().finish()
-             //findNavController().navigate(R.id.action_addFragment_to_profileFragment)
-            }
-        })
-    }else
-    {
-       Toast.makeText(requireContext(),"BAD!",Toast.LENGTH_LONG).show()
-    } */
-/*
-        mUserViewModel.activeUser().observe(requireActivity(), Observer
-                {
-                    if(it != null)
-                    {
-                        val intent = Intent(requireActivity(),MainActivity::class.java)
-
-                        intent.putExtra("id",it.user_id.toString())
-                        intent.putExtra("name",it.user_name)
-                        intent.putExtra("email",it.user_email)
-                        intent.putExtra("adress",it.user_adress)
-                        intent.putExtra("phone",it.user_phone_number)
-
-                        startActivity(intent)
-                        requireActivity().finish()
-                    }
-                    else
-                    {
-                        Toast.makeText(requireContext(),"Nem jo na ",Toast.LENGTH_LONG).show()
-                    }
-                })
-
-
- */
-    }
-/*
-    private fun inputCheck(name: TextView, email: TextView, phone: TextView,adress:TextView): Boolean {
-
-       // return (validateUserName(name) && validateEmail(email) && validateAdress(adress))
-        return !(name.text.isEmpty() && email.text.isEmpty() && phone.text.isEmpty() && adress.text.isEmpty())
 
     }
-    private fun validateUserName(name:TextView):Boolean
+/*
+    private fun inputCheck(name: String, email: String, phone: String,adress:String): Boolean {
+
+       return (validateUserName(name) && validateEmail(email) && validateAdress(adress))
+        //return !(name.isEmpty() && email.isEmpty() && phone.isEmpty() && adress.isEmpty())
+
+    }
+    private fun validateUserName(name: TextView):Boolean
     {
 
         val nameT =name.text.toString()

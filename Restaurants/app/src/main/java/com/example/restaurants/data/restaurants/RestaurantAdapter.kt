@@ -3,10 +3,7 @@ package com.example.restaurants.data.restaurants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.replace
 import androidx.recyclerview.widget.RecyclerView
@@ -18,9 +15,9 @@ import com.example.restaurants.fragments.ListFragment
 class RestaurantAdapter(
     private var restaurantList:MutableList<Restaurant>,
     private var listener: OnItemClickListener
-    ) :RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>(){
+    ) :RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>(),Filterable{
 
-
+    var filteredList = restaurantList
 
     inner class RestaurantViewHolder(itemView: View):RecyclerView.ViewHolder(itemView),View.OnClickListener
     {
@@ -31,7 +28,7 @@ class RestaurantAdapter(
 
         init {
            itemView.setOnClickListener(this)
-           // favourite.setOnClickListener(this)
+            favourite.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
@@ -55,17 +52,46 @@ class RestaurantAdapter(
     }
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
-        holder.name.text = restaurantList[position].name.toString()
-        holder.adress.text = restaurantList[position].address
-        holder.phone.text = restaurantList[position].phone
-
-
-
+        holder.name.text = filteredList[position].name.toString()
+        holder.adress.text = filteredList[position].address
+        holder.phone.text = filteredList[position].phone
 
     }
 
     override fun getItemCount(): Int {
-        return restaurantList.size
+        //return restaurantList.size
+        return filteredList.size
+    }
+
+    override fun getFilter(): Filter {
+        return object:Filter()
+        {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                val filterResults = FilterResults()
+                if(charSearch.isEmpty())
+                {
+                    filteredList = restaurantList
+
+                }
+                else
+                {
+                    filteredList = restaurantList.filter { item ->
+                        item.city.toUpperCase().contains(charSearch.toUpperCase())
+
+                    }.toMutableList()
+
+                }
+                filterResults.values = filteredList
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                filteredList = results?.values as MutableList<Restaurant>
+                notifyDataSetChanged()
+            }
+
+        }
     }
 
 

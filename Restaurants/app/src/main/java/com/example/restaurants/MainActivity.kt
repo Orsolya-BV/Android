@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.replace
 import com.example.restaurants.fragments.AddFragment
+import com.example.restaurants.fragments.FavouriteFragment
 import com.example.restaurants.fragments.ListFragment
 import com.example.restaurants.fragments.ProfileFragment
 import com.google.android.material.navigation.NavigationView
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     lateinit var profileFragment: ProfileFragment
     lateinit var addFragment: AddFragment
     lateinit var listFragment: ListFragment
+    lateinit var favouriteFragment:FavouriteFragment
     lateinit var toolbar:Toolbar
     lateinit var navigationView: NavigationView
 
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         profileFragment = ProfileFragment()
         listFragment = ListFragment()
         addFragment = AddFragment()
-
+        favouriteFragment = FavouriteFragment()
 
         navigationView =findViewById<NavigationView>(R.id.navigation)
         navigationView.setNavigationItemSelectedListener(this)
@@ -72,6 +74,13 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                         .commit()
             }
 
+            R.id.go_favourite ->{
+                this.favouriteFragment = FavouriteFragment()
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment,favouriteFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+            }
 
         }
         mDrawer.closeDrawer(GravityCompat.START)
