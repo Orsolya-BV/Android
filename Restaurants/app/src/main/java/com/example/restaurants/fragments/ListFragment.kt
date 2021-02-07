@@ -50,7 +50,7 @@ class ListFragment : Fragment(),RestaurantAdapter.OnItemClickListener {
 
         */
         val recyclerViewAdapter =RestaurantAdapter(
-                list,this
+                list,this,viewModel
         )
         recyclerView.adapter = recyclerViewAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
