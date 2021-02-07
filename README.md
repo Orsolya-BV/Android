@@ -10,6 +10,7 @@
 
 ### Splash Screen
 
+
 <p> The data from api is loaded here. When the screen is loaded , it will automatically navigate to the next screen and that is <b>Main </b>screen with restaurants list. </p>
 
 
