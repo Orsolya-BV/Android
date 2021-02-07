@@ -31,6 +31,8 @@
 
 <p> In this screen is showed all details of selected restaurant.  </p>
 
+![details](https://user-images.githubusercontent.com/72908949/107152010-55b24e80-696e-11eb-876b-3226577c2bd4.jpg)
+
 
 ### Profile and registration screen 
 <p> Here the user can registered to the app and the datas of users will be showed in Profile screen. </p>
