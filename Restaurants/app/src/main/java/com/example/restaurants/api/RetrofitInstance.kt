@@ -9,7 +9,8 @@ object RetrofitInstance {
 
     private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://ratpark-api.imok.space/")
+          //  .baseUrl("https://ratpark-api.imok.space/")
+                .baseUrl("https://us-central1-local-trader-2-0.cloudfunctions.net/API/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

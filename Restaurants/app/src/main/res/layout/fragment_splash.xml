@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/title_restaurants"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:width="200dp"
             android:height="50dp"
@@ -35,7 +35,7 @@
             android:gravity="center"
             android:text="@string/title"
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

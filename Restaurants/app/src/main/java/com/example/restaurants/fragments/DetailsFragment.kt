@@ -1,13 +1,16 @@
 package com.example.restaurants.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import com.example.restaurants.MapsActivity
 import com.example.restaurants.R
 import com.example.restaurants.repository.ApiRepository
 import com.example.restaurants.viewmodel.ListViewModel
@@ -47,6 +50,18 @@ class DetailsFragment : Fragment() {
         phone.text = restaurant?.phone
         price.text = restaurant?.price.toString()
         city.text = restaurant?.city
+
+
+        val button = view.findViewById<Button>(R.id.button_map)
+        button.setOnClickListener {
+           val intent = Intent(context,MapsActivity::class.java).apply {
+               putExtra("name",restaurant?.name)
+               putExtra("lat",restaurant?.lat)
+               putExtra("lng",restaurant?.lng)
+           }
+            startActivity(intent)
+
+        }
 
     }
 }
